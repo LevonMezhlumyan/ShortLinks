@@ -1,14 +1,16 @@
 import path from "path";
 import config from "config";
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import AuthRouter from "./router/AuthRouter.js";
 import LinkRouter from "./router/LinkRouter.js";
 import RedirectRouter from "./router/RedirectRouter.js";
 mongoose.set("strictQuery", false);
+dotenv.config();
 
 const app = express();
-const port = config.get("port") || 4001;
+const port = process.env.PORT || 4001;
 
 app.use(express.json());
 app.use("/t", RedirectRouter);
@@ -23,7 +25,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 mongoose
-  .connect(config.get("db_url"))
+  .connect(process.env.DB_URL)
   .then(() => console.log(`DB has benn connected!`))
   .then(() => {
     app.listen(port, () =>

@@ -9,7 +9,7 @@ const router = Router();
 
 router.post("/generate", useAuth, async (req, res) => {
   try {
-    const baseUrl = config.get("baseUrl");
+    const baseUrl = process.env.BASEURL;
     const { from } = req.body;
     const existing = await LinkModel.findOne({ from, owner: req.user.userId });
     if (existing) {

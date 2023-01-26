@@ -1,6 +1,0 @@
-{
-    "port": 4000,
-    "jwtSecretKey": "MySuperJWTKey",
-    "baseUrl": "http://localhost:4000",
-    "db_url": "mongodb+srv://root:root@cluster0.vuiaemn.mongodb.net/?retryWrites=true&w=majority"
-}
