@@ -47,7 +47,7 @@ class AuthController {
         {
           userId: user.id,
         },
-        config.get("jwtSecretKey"),
+        process.env.JWTSECRETKEY,
         { expiresIn: "1h" }
       );
 
